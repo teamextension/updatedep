@@ -1,7 +1,7 @@
 # UpdateDep
 
 
-![GitHub Release](https://img.shields.io/github/v/release/teamextension/homebrew-updatedep)
+![GitHub Release](https://img.shields.io/github/v/release/teamextension/updatedep)
 
 
 
@@ -51,7 +51,7 @@ choco install updatedep
 ```
 ###
 ### Manual installation
-Download UpdateDep via [GitHub releases](https://github.com/teamextension/homebrew-updatedep/releases)
+Download UpdateDep via [GitHub releases](https://github.com/teamextension/updatedep/releases)
 
 ---
 
