@@ -9,7 +9,7 @@ class Updatedep < Formula
 
   resource "excludes" do
     url "https://raw.githubusercontent.com/teamextension/updatedep/main/excludes.txt"
-    sha256 "a343c7a468b75d521eaab54531412060280bcf7d20242670ee3a3b333418e6ed"
+    sha256 "c691821aa1f6300751e0d6a6c8e06ba7f1585843f934e8ea50a41aae68533946"
   end
 
   def install
