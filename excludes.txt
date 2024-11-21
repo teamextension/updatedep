@@ -1,0 +1,8 @@
+alpha
+beta
+build
+m
+mc
+pre
+rc
+snapshot
