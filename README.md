@@ -31,27 +31,63 @@ UpdateDep is an application that analyzes the dependencies of a project, this he
 * Apache Maven 3.8.4+
 ---
 ## Installation
+### Manual Installation
 
+1. **Download UpdateDep**:  
+   Visit the [UpdateDep GitHub Releases Page](https://github.com/teamextension/updatedep/releases) to download the latest version of `UpdateDep`.
 
-### Using Brew (Mac)
-Tap the repo
-```
-brew tap teamextension/updatedep
-```
-Install
-```
-brew install updatedep
-```
-###
-### Using Chocolatey (Windows)
-Install
-```
-choco install updatedep
-```
-###
-### Manual installation
-Download UpdateDep via [GitHub releases](https://github.com/teamextension/updatedep/releases)
+### Install Using Chocolatey
 
+1. **Open Command Prompt as Administrator**:  
+   Right-click on the Start button, and select **Command Prompt (Admin)** or **Windows Terminal (Admin)**.
+
+2. **Execute the Installation Command**:
+   ```
+   choco install updatedep
+   ```
+
+### Install Using Homebrew
+1. **Open Terminal**:
+   Use the Terminal app on macOS or Linux.
+
+2. **Tap the Repository**:
+   ```
+   brew tap teamextension/updatedep
+   ```
+3. **Install the Package**:
+    ```
+   brew install updatedep
+   ```
+
+### Upgrade Using the Upgrade Action
+1. Make sure the UpdateDep is installed using **Homebrew** or **Chocolatey**
+
+2. **Open Terminal or Command Prompt**:  
+   Use the **Terminal** app on macOS/Linux or **Command Prompt** on Windows.
+3. **Execute the Upgrade Command**:
+    ```
+   updatedep upgrade
+   ```
+
+### Upgrade Using Chocolatey
+
+1. **Open Command Prompt as Administrator**:  
+   Right-click on the Start button, and select **Command Prompt (Admin)** or **Windows Terminal (Admin)**.
+
+2. **Execute the Upgrade Command**:
+    ```
+   choco upgrade updatedep
+   ```
+
+### Upgrade Using Homebrew
+
+1. **Open Terminal**:  
+   Use the **Terminal** app on macOS or Linux.
+
+2. **Execute the Upgrade Command**:
+    ```
+   brew upgrade updatedep
+   ```
 ---
 
 ## Usage
@@ -60,56 +96,87 @@ updatedep <action> [options] [pom.xml|build.gradle path]
 ```
 ### Actions available:
 
-| Action                   | Description                                                                                                                                                    |
-|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| vulnerable               | Detect dependencies with vulnerabilities.                                                                                                                      |
-| new-vulnerable           | Detect new dependencies with vulnerabilities, compared to the previous run.                                                                                    |
-| latest                   | Print the latest dependency versions.                                                                                                                          |
-| check-latest             | Check if the project builds and has no breaking changes when using the latest dependency versions.                                                             |
-| minimum                  | Detect the minimum dependency versions needed to remove vulnerabilities, without breaking changes.                                                             |
-| maximum                  | Detect the highest dependency versions without vulnerabilities and breaking changes.                                                                           |
-| maximum-update           | Detect the highest dependency versions without vulnerabilities and breaking changes (the same logic with maximum), and updates the build file.                 |
-| maximum-semantic         | Detect the highest major and minor dependency versions without vulnerabilities and breaking changes.                                                           |
-| old                      | Detect dependencies whose last release is more than 3 years ago.                                                                                               |
-| not-maintained           | Detect dependencies whose last release is more than 5 years ago.                                                                                               |
-| bleeding-edge            | Detect dependencies with versions that were released less than a month ago.                                                                                    |
-| runtime                  | Detect dependencies that can be marked as runtime.                                                                                                             |
-| unused                   | Detect dependencies that are unused and can removed.                                                                                                           |
-| explicit-can-be-implicit | Detect unnecessary explicit dependencies since they are already implicit dependencies.                                                                         |
-| implicit-can-be-explicit | Detect implicit dependencies with vulnerabilities that can be replaced with non-vulnerable explicit dependencies.                                              |
-| implicit-can-be-excluded | Detect implicit dependencies with vulnerabilities that can be excluded to remove the vulnerability.                                                            |
-| license                  | Print dependency licenses, and list restrictive licenses like GNU General Public License (GPL) and Affero General Public License (AGPL).                       |
-| download-cve             | Downloads the latest National Vulnerability Database (NVD) Common Vulnerabilities and Exposures (CVE) data feed. This could take a few hours for new installs. |
-| upgrade                  | Upgrade UpdateDep to the latest version.                                                                                                                       |
-| whitelist                | Whitelisted dependencies will not be upgraded, or checked for vulnerabilities, or flagged as unused.                                                           |
-| blacklist                | Blacklisted dependencies will be printed out when detected, and skipped when looking for newer versions.                                                       |
-| excludes                 | Dependencies with versions specified in excludes.txt will be skipped.                                                                                          |
-| log-out                  | Log out currently logged-in user.                                                                                                                              |
+| Action                                                                                                                | Description                                                                                                                                                    |
+|-----------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [vulnerable](https://github.com/teamextension/updatedep/blob/main/actions/VULNERABLE.md)                              | Detect dependencies with vulnerabilities.                                                                                                                      |
+| [new-vulnerable](https://github.com/teamextension/updatedep/blob/main/actions/NEW-VULNERABLE.md)                      | Detect new dependencies with vulnerabilities, compared to the previous run.                                                                                    |
+| [latest](https://github.com/teamextension/updatedep/blob/main/actions/LATEST.md)                                      | Print the latest dependency versions.                                                                                                                          |
+| [check-latest](https://github.com/teamextension/updatedep/blob/main/actions/CHECK-LATEST.md)                          | Check if the project builds and has no breaking changes when using the latest dependency versions.                                                             |
+| [minimum](https://github.com/teamextension/updatedep/blob/main/actions/MINIMUM.md)                                    | Detect the minimum dependency versions needed to remove vulnerabilities, without breaking changes.                                                             |
+| [maximum](https://github.com/teamextension/updatedep/blob/main/actions/MAXIMUM.md)                                    | Detect the highest dependency versions without vulnerabilities and breaking changes.                                                                           |
+| [maximum-update](https://github.com/teamextension/updatedep/blob/main/actions/MAXIMUM-UPDATE.md)                      | Detect the highest dependency versions without vulnerabilities and breaking changes (the same logic with maximum), and updates the build file.                 |
+| [maximum-semantic](https://github.com/teamextension/updatedep/blob/main/actions/MAXIMUM-SEMANTIC.md)                  | Detect the highest major and minor dependency versions without vulnerabilities and breaking changes.                                                           |
+| [old](https://github.com/teamextension/updatedep/blob/main/actions/OLD.md)                                            | Detect dependencies whose last release is more than 3 years ago.                                                                                               |
+| [not-maintained](https://github.com/teamextension/updatedep/blob/main/actions/NOT-MAINTAINED.md)                      | Detect dependencies whose last release is more than 5 years ago.                                                                                               |
+| [bleeding-edge](https://github.com/teamextension/updatedep/blob/main/actions/BLEEDING-EDGE.md)                        | Detect dependencies with versions that were released less than a month ago.                                                                                    |
+| [runtime](https://github.com/teamextension/updatedep/blob/main/actions/RUNTIME.md)                                    | Detect dependencies that can be marked as runtime.                                                                                                             |
+| [unused](https://github.com/teamextension/updatedep/blob/main/actions/UNUSED.md)                                      | Detect dependencies that are unused and can removed.                                                                                                           |
+| [explicit-can-be-implicit](https://github.com/teamextension/updatedep/blob/main/actions/EXPLICIT-CAN-BE-IMPLICIT.md)  | Detect unnecessary explicit dependencies since they are already implicit dependencies.                                                                         |
+| [implicit-can-be-explicit](https://github.com/teamextension/updatedep/blob/main/actions/IMPLICIT-CAN-BE-EXPLICITT.md) | Detect implicit dependencies with vulnerabilities that can be replaced with non-vulnerable explicit dependencies.                                              |
+| [implicit-can-be-excluded](https://github.com/teamextension/updatedep/blob/main/actions/IMPLICIT-CAN-BE-EXCLUDED.md)  | Detect implicit dependencies with vulnerabilities that can be excluded to remove the vulnerability.                                                            |
+| [license](https://github.com/teamextension/updatedep/blob/main/actions/LICENSE.md)                                    | Print dependency licenses, and list restrictive licenses like GNU General Public License (GPL) and Affero General Public License (AGPL).                       |
+| [download-cve](https://github.com/teamextension/updatedep/blob/main/actions/DOWNLOAD-CVE.md)                          | Downloads the latest National Vulnerability Database (NVD) Common Vulnerabilities and Exposures (CVE) data feed. This could take a few hours for new installs. |
+| [upgrade](https://github.com/teamextension/updatedep/blob/main/actions/UPGRADE.md)                                    | Upgrade UpdateDep to the latest version.                                                                                                                       |
+| [whitelist](https://github.com/teamextension/updatedep/blob/main/actions/WHITELIST.md)                                | Whitelisted dependencies will not be upgraded, or checked for vulnerabilities, or flagged as unused.                                                           |
+| [blacklist](https://github.com/teamextension/updatedep/blob/main/actions/BLACKLIST.md)                                | Blacklisted dependencies will be printed out when detected, and skipped when looking for newer versions.                                                       |
+| [exclude](https://github.com/teamextension/updatedep/blob/main/actions/EXCLUDE.md)                                    | Dependencies with versions specified in exclude.txt will be skipped.                                                                                           |
+| [log-out](https://github.com/teamextension/updatedep/blob/main/actions/LOG-OUT.md)                                    | Log out currently logged-in user.                                                                                                                              |
 ####
 > ### Options
-> | Option                                                       | Description                              |
-> |--------------------------------------------------------------|------------------------------------------|
-> | -i, --ignoreLowVulnerabilities                               | Ignore low vulnerabilities.              |      
-> | -s, --skipTests                                              | Skip running unit and integration tests. |
-> | -d=\<groupId:artifactId>, --dependency=\<groupId:artifactId> | Limit action to the given dependency.    |
->
+> | Option                                                       | Description                              | Sample                                              |
+> |--------------------------------------------------------------|------------------------------------------|-----------------------------------------------------|
+> | -i, --ignoreLowVulnerabilities                               | Ignore low vulnerabilities.              | updatedep vulnerable -i path-to-build-file          |      
+> | -s, --skipTests                                              | Skip running unit and integration tests. | updatedep unused -s path-to-build-file              |
+> | -d=\<groupId:artifactId>, --dependency=\<groupId:artifactId> | Limit action to the given dependency.    | updatedep minimum -d=log4j:log4j path-to-build-file |
+
 ---
 ## Support
 ### For inquiries feel free to contact [us.](https://www.teamextension.com/contact/)
 
 ---
 ## FAQ
-> ###### Q: Exception in thread "main" java.lang.UnsupportedClassVersionError: com/teamextension/updatedep/UpdateDepApplicationKt has been compiled by a more recent version of the Java Runtime (class file version 55.0), this version of the Java Runtime
-> #### A: updatedep requires Java 11+
 
+- ***Why am I seeing this error "UpdateDepApplicationKt has been compiled by a more recent version of the Java Runtime"?***
+> Exception in thread "main" java.lang.UnsupportedClassVersionError: com/teamextension/updatedep/UpdateDepApplicationKt has been compiled by a more recent version of the Java Runtime (class file version 55.0)
 ####
-> ###### Q: I encounter errors when running Maven actions
-> #### A: Set the MAVEN_HOME path variable
-
+UpdateDep requires JAVA 11 or higher. Please ensure you have the correct JAVA version installed.
+###
+- ***Why am I seeing this error "java.lang.IllegalStateException: Maven home is set to: 'null/bin' which is not a directory"?***
 ####
-> ###### Q: I have an old java version as my default.
-> #### A: @echo off "~\Java\jdk-11.0.14\bin\java" -jar "C:\Program Files\updatedep\updatedep.jar" %*
-
+Set the MAVEN_HOME path variable
+###
+- ***I have multiple Java versions installed. How can I set the correct version for running the application??***
 ####
-> ###### Q: It seems there was a large increase of disk space usage upon using the app
-> #### A: Delete the dctemp folders under (Mac) /System/Volumes/Data/private/var/folders/df/rq4tg8992bbc56vyrppp02x00000gn/T or (Windows) ~\AppData\Local\Temp
+To specify the Java version, edit the batch or script file for UpdateDep, located in the *UPDATEDEP_HOME* directory:
+####
+For Windows:
+> @echo off "~\Java\jdk-11.0.14\bin\java" -jar "C:\Program Files\updatedep\updatedep.jar" %*
+####
+For Mac:
+> "/Library/Java/JavaVirtualMachines/openjdk-11.0.2.jdk/Contents/Home/bin/java" -jar "/usr/local/Cellar/updatedep/<updatedep version>/libexec/updatedep.jar" "$@"
+###
+- ***Why is the application consuming so much disk space?***
+####
+The application creates temporary files that may accumulate over time. You can safely delete the *dctemp* folders:
+####
+For Windows:
+> ~\AppData\Local\Temp
+####
+For macOS:
+> /System/Volumes/Data/private/var/folders/df/rq4tg8992bbc56vyrppp02x00000gn/T
+###
+- ***What should I do if I encounter errors like these?***
+####
+> io.github.jeremylong.openvulnerability.client.nvd.NvdApiRetryStrategy - NVD API request failures are occurring; retrying request for the Nth time
+ERROR org.owasp.dependencycheck.Engine - Error updating the NVD Data
+####
+These errors occur when the OWASP Dependency Check engine cannot retrieve NVD data, often due to temporary unavailability of the NVD API. Please try running the application again after some time.
+###
+- ***Does the application use any network ports?***
+####
+Yes, the application uses ports 8081 to 8089 during login and log-out. It checks the availability of these ports and uses the next available one.
+####
+      login: Required during the first run of any action. 
+####
+      log-out: Used to log-out the user.
+___
