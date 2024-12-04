@@ -6,8 +6,11 @@
 
 
 
-UpdateDep is an application that analyzes the dependencies of a project, this helps check what dependency versions can be used with less to no vulnerabilities.
+UpdateDep helps manage Maven and Gradle dependency versions. Automates the time-consuming process of looking for the best (latest, non-breaking, non-vulnerable) dependency version. Uses the pom.xml or build.gradle in the current directory if not specified.
 
+Processing time depends on build time and number of dependencies. Automated breaking change detection depends on project test coverage. Projects with minimal test coverage will have to be manually tested for breaking changes.
+
+Only run on projects you trust. Check your project builds, has no uncommitted changes, and backup before running.
 
 
 ---
@@ -25,6 +28,15 @@ UpdateDep is an application that analyzes the dependencies of a project, this he
 - Helps manage Maven and Gradle dependency versions
 - Automates the time-consuming process of looking for the best (latest, non-breaking, non-vulnerable) dependency version
 - Supports Mac and Windows
+- Looks for vulnerable dependencies using the National Vulnerability Database(NVD).
+- Checks if the latest dependency versions break your project build.
+- Discovers the maximum, non-breaking dependency versions. This will take time since it will build your project, run your unit tests to try and find non-vulnerable dependency versions that does not break your build.
+- Discovers the minimum, non-breaking dependency versions. This will take time since it will build your project, run your unit tests to try and find non-vulnerable dependency versions that does not break your build.
+- Discovers the maximum, non-breaking dependency versions per major version. This will take time since it will run the discovery process against every major version.
+- Looks for old, unmaintained, or bleeding edge dependencies.
+- Discovers explicit dependencies that are unused, runtime, or can be made implicit.
+- Discovers implicit dependencies that can be excluded or made explicit to remove vulnerabilities.
+- Prints dependency licenses and flags restrictive licenses like GPL and AGPL.
 ---
 ## Prerequisites
 * Java 11
