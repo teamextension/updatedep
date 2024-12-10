@@ -5,10 +5,9 @@
 
 
 
+UpdateDep helps manage Maven and Gradle dependency versions. Automates the time-consuming process of looking for the best (latest, non-breaking, non-vulnerable) dependency version.
 
-UpdateDep helps manage Maven and Gradle dependency versions. Automates the time-consuming process of looking for the best (latest, non-breaking, non-vulnerable) dependency version. Uses the pom.xml or build.gradle in the current directory if not specified.
-
-Processing time depends on build time and number of dependencies. Automated breaking change detection depends on project test coverage. Projects with minimal test coverage will have to be manually tested for breaking changes.
+Uses the pom.xml or build.gradle in the current directory if not specified. Processing time depends on build time and number of dependencies. Automated breaking change detection depends on project test coverage. Projects with minimal test coverage will have to be manually tested for breaking changes.
 
 Only run on projects you trust. Check your project builds, has no uncommitted changes, and backup before running.
 
@@ -19,6 +18,7 @@ Only run on projects you trust. Check your project builds, has no uncommitted ch
 - [Features](#features)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
+- [Upgrade](#upgrade)
 - [Usage](#usage)
 - [Support](#support)
 - [FAQ](#faq)
@@ -26,7 +26,6 @@ Only run on projects you trust. Check your project builds, has no uncommitted ch
 
 ## Features
 - Helps manage Maven and Gradle dependency versions
-- Automates the time-consuming process of looking for the best (latest, non-breaking, non-vulnerable) dependency version
 - Supports Mac and Windows
 - Looks for vulnerable dependencies using the National Vulnerability Database(NVD).
 - Checks if the latest dependency versions break your project build.
@@ -43,10 +42,6 @@ Only run on projects you trust. Check your project builds, has no uncommitted ch
 * Apache Maven 3.8.4+
 ---
 ## Installation
-### Manual Installation
-
-1. **Download UpdateDep**:  
-   Visit the [UpdateDep GitHub Releases Page](https://github.com/teamextension/updatedep/releases) to download the latest version of `UpdateDep`.
 
 ### Install Using Chocolatey
 
@@ -70,9 +65,15 @@ Only run on projects you trust. Check your project builds, has no uncommitted ch
     ```
    brew install updatedep
    ```
+### Manual Installation
+
+1. **Download UpdateDep**:  
+   Visit the [UpdateDep GitHub Releases Page](https://github.com/teamextension/updatedep/releases) to download the latest version of `UpdateDep`.
+---
+## Upgrade
 
 ### Upgrade Using the Upgrade Action
-1. Make sure the UpdateDep is installed using **Homebrew** or **Chocolatey**
+1. Make sure the UPDATEDEP_HOME is set with the path of your updatedep.jar
 
 2. **Open Terminal or Command Prompt**:  
    Use the **Terminal** app on macOS/Linux or **Command Prompt** on Windows.
@@ -148,47 +149,52 @@ updatedep <action> [options] [pom.xml|build.gradle path]
 ---
 ## FAQ
 
-- ***Why am I seeing this error "UpdateDepApplicationKt has been compiled by a more recent version of the Java Runtime"?***
-> Exception in thread "main" java.lang.UnsupportedClassVersionError: com/teamextension/updatedep/UpdateDepApplicationKt has been compiled by a more recent version of the Java Runtime (class file version 55.0)
+### 1. Why am I seeing this error "UpdateDepApplicationKt has been compiled by a more recent version of the Java Runtime"?
+    Exception in thread "main" java.lang.UnsupportedClassVersionError: com/teamextension/updatedep/UpdateDepApplicationKt has been compiled by a more recent version of the Java Runtime (class file version 55.0)
 ####
 UpdateDep requires JAVA 11 or higher. Please ensure you have the correct JAVA version installed.
+
 ###
-- ***Why am I seeing this error "java.lang.IllegalStateException: Maven home is set to: 'null/bin' which is not a directory"?***
+### 2. Why am I seeing this error "java.lang.IllegalStateException: Maven home is set to: 'null/bin' which is not a directory"?
 ####
 Set the MAVEN_HOME path variable
 ###
-- ***I have multiple Java versions installed. How can I set the correct version for running the application??***
+### 3. I have multiple Java versions installed. How can I set the correct version for running the application?
 ####
 To specify the Java version, edit the batch or script file for UpdateDep, located in the *UPDATEDEP_HOME* directory:
 ####
 For Windows:
-> @echo off "~\Java\jdk-11.0.14\bin\java" -jar "C:\Program Files\updatedep\updatedep.jar" %*
+
+    @echo off "~\Java\jdk-11.0.14\bin\java" -jar "C:\Program Files\updatedep\updatedep.jar" %*
 ####
 For Mac:
-> "/Library/Java/JavaVirtualMachines/openjdk-11.0.2.jdk/Contents/Home/bin/java" -jar "/usr/local/Cellar/updatedep/<updatedep version>/libexec/updatedep.jar" "$@"
+
+    "/Library/Java/JavaVirtualMachines/openjdk-11.0.2.jdk/Contents/Home/bin/java" -jar "/usr/local/Cellar/updatedep/<updatedep version>/libexec/updatedep.jar" "$@"
 ###
-- ***Why is the application consuming so much disk space?***
+### 4. Why is the application consuming so much disk space?
 ####
 The application creates temporary files that may accumulate over time. You can safely delete the *dctemp* folders:
 ####
 For Windows:
-> ~\AppData\Local\Temp
+
+    ~\AppData\Local\Temp
 ####
 For macOS:
-> /System/Volumes/Data/private/var/folders/df/rq4tg8992bbc56vyrppp02x00000gn/T
+
+    /System/Volumes/Data/private/var/folders/df/rq4tg8992bbc56vyrppp02x00000gn/T
 ###
-- ***What should I do if I encounter errors like these?***
+### 5. What should I do if I encounter errors like these?
 ####
-> io.github.jeremylong.openvulnerability.client.nvd.NvdApiRetryStrategy - NVD API request failures are occurring; retrying request for the Nth time
-ERROR org.owasp.dependencycheck.Engine - Error updating the NVD Data
+    io.github.jeremylong.openvulnerability.client.nvd.NvdApiRetryStrategy - NVD API request failures are occurring; retrying request for the Nth time 
+    ERROR org.owasp.dependencycheck.Engine - Error updating the NVD Data
 ####
 These errors occur when the OWASP Dependency Check engine cannot retrieve NVD data, often due to temporary unavailability of the NVD API. Please try running the application again after some time.
 ###
-- ***Does the application use any network ports?***
+### 6. Does the application use any network ports?
 ####
 Yes, the application uses ports 8081 to 8089 during login and log-out. It checks the availability of these ports and uses the next available one.
 ####
-      login: Required during the first run of any action. 
+    login: Required during the first run of any action. 
 ####
-      log-out: Used to log-out the user.
+    log-out: Used to log-out the user.
 ___
