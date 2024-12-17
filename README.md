@@ -72,16 +72,6 @@ Only run on projects you trust. Check your project builds, has no uncommitted ch
 ---
 ## Upgrade
 
-### Upgrade Using the Upgrade Action
-1. Make sure the UPDATEDEP_HOME is set with the path of your updatedep.jar
-
-2. **Open Terminal or Command Prompt**:  
-   Use the **Terminal** app on macOS/Linux or **Command Prompt** on Windows.
-3. **Execute the Upgrade Command**:
-    ```
-   updatedep upgrade
-   ```
-
 ### Upgrade Using Chocolatey
 
 1. **Open Command Prompt as Administrator**:  
@@ -100,6 +90,15 @@ Only run on projects you trust. Check your project builds, has no uncommitted ch
 2. **Execute the Upgrade Command**:
     ```
    brew upgrade updatedep
+   ```
+### Upgrade Using the Upgrade Action
+1. Make sure the UPDATEDEP_HOME is set with the path of your updatedep.jar
+
+2. **Open Terminal or Command Prompt**:  
+   Use the **Terminal** app on macOS/Linux or **Command Prompt** on Windows.
+3. **Execute the Upgrade Command**:
+    ```
+   updatedep upgrade
    ```
 ---
 
@@ -152,7 +151,7 @@ updatedep <action> [options] [pom.xml|build.gradle path]
 ### 1. Why am I seeing this error "UpdateDepApplicationKt has been compiled by a more recent version of the Java Runtime"?
     Exception in thread "main" java.lang.UnsupportedClassVersionError: com/teamextension/updatedep/UpdateDepApplicationKt has been compiled by a more recent version of the Java Runtime (class file version 55.0)
 ####
-UpdateDep requires JAVA 11 or higher. Please ensure you have the correct JAVA version installed.
+UpdateDep requires Java 11 or higher. Please ensure you have the correct JAVA version installed.
 
 ###
 ### 2. Why am I seeing this error "java.lang.IllegalStateException: Maven home is set to: 'null/bin' which is not a directory"?
@@ -197,4 +196,8 @@ Yes, the application uses ports 8081 to 8089 during login and log-out. It checks
     login: Required during the first run of any action. 
 ####
     log-out: Used to log-out the user.
+###
+### 7. Why am I seeing this "Error: Unable to access jarfile ~\updatedep.jar"?
+####
+This occurs if when the UPDATEDEP_HOME path variable was not set, or the jar file is not present in the current working directory. The value of the path variable should contain the path of the jar file path and for the exclude.txt, blacklist.txt and whitelist.txt.
 ___
