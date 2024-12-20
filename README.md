@@ -69,6 +69,38 @@ Only run on projects you trust. Check your project builds, has no uncommitted ch
 
 1. **Download UpdateDep**:  
    Visit the [UpdateDep GitHub Releases Page](https://github.com/teamextension/updatedep/releases) to download the latest version of `UpdateDep`.
+2. Set the UPDATEDEP_HOME system variable with the path of your jar file
+   ```
+   Windows
+   e.g. C:\Program Files\updatedep
+   
+   Mac
+   e.g. /Applications/updatedep
+   ```
+   
+### Setting the NVD API key
+This application is utilizing the Owasp dependency-check. And it is highly encouraged to obtain an NVD API Key. Setting the NVD API key will make the dependency scanning much faster.
+1. Open the link https://nvd.nist.gov/developers/request-an-api-key
+2. Provide:
+   ```
+   Organization Name:
+   Email Address:
+   Organization Type: (selection)
+   ```
+3. Approve the terms of use.
+4. Click Submit.
+5. The message
+```After a few minutes, please check your email for a link to activate and view your NVD API key. If your key is not activated within seven days, a request for a new API Key must be submitted.``` will show up.
+6. And email with subject ```Request for NVD API Key``` will be sent.
+7. Click the activation link in the email.
+8. Save a copy of the NVD API key as this will only be shown once.
+9. In the **UPDATEDEP_HOME** path add an **updatedep.yaml** file with contents below. For adding the system variable see [Manual-Installation](#manual-installation).
+   #### updatedep.yaml
+   ```
+   owasp:
+     nvd:
+       api_key: <nvd-api-key>
+   ```
 ---
 ## Upgrade
 
@@ -200,4 +232,10 @@ Yes, the application uses ports 8081 to 8089 during login and log-out. It checks
 ### 7. Why am I seeing this "Error: Unable to access jarfile ~\updatedep.jar"?
 ####
 This occurs if when the UPDATEDEP_HOME path variable was not set, or the jar file is not present in the current working directory. The value of the path variable should contain the path of the jar file path and for the exclude.txt, blacklist.txt and whitelist.txt.
+###
+### 8.  What should I do if I encounter errors like this?
+####
+    Failed to update hosted suppressions file, results may contain false positives already resolved by the DependencyCheck project
+####
+This occurs due to internet issues you might be facing. Try to restart your device or connect to a much stable internet connection and retry.
 ___
