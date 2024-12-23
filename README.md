@@ -77,24 +77,12 @@ Only run on projects you trust. Check your project builds, has no uncommitted ch
    Mac
    e.g. /Applications/updatedep
    ```
-   
+
 ### Setting the NVD API key
 This application is utilizing the Owasp dependency-check. And it is highly encouraged to obtain an NVD API Key. Setting the NVD API key will make the dependency scanning much faster.
-1. Open the link https://nvd.nist.gov/developers/request-an-api-key
-2. Provide:
-   ```
-   Organization Name:
-   Email Address:
-   Organization Type: (selection)
-   ```
-3. Approve the terms of use.
-4. Click Submit.
-5. The message
-```After a few minutes, please check your email for a link to activate and view your NVD API key. If your key is not activated within seven days, a request for a new API Key must be submitted.``` will show up.
-6. And email with subject ```Request for NVD API Key``` will be sent.
-7. Click the activation link in the email.
-8. Save a copy of the NVD API key as this will only be shown once.
-9. In the **UPDATEDEP_HOME** path add an **updatedep.yaml** file with contents below. For adding the system variable see [Manual-Installation](#manual-installation).
+1. Generate the NVD API using https://nvd.nist.gov/developers/request-an-api-key
+2. Save a copy of the NVD API key as this will only be shown once.
+3. In the **UPDATEDEP_HOME** path add an **updatedep.yaml** file with contents below. For adding the system variable see [Manual-Installation](#manual-installation).
    #### updatedep.yaml
    ```
    owasp:
