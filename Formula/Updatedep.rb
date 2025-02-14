@@ -7,8 +7,8 @@ class Updatedep < Formula
 
   depends_on "openjdk@11"
 
-  resource "excludes" do
-    url "https://raw.githubusercontent.com/teamextension/updatedep/main/excludes.txt"
+  resource "exclude" do
+    url "https://raw.githubusercontent.com/teamextension/updatedep/main/exclude.txt"
     sha256 "c691821aa1f6300751e0d6a6c8e06ba7f1585843f934e8ea50a41aae68533946"
   end
 
@@ -16,15 +16,15 @@ class Updatedep < Formula
     libexec.install "updatedep.jar"
     bin.write_jar_script libexec/"updatedep.jar", "updatedep"
 
-    resource("excludes").stage do
-      libexec.install "excludes.txt"
+    resource("exclude").stage do
+      libexec.install "exclude.txt"
     end
   end
 
   def caveats
     <<~EOS
-      The excludes.txt file is installed at:
-        #{libexec}/excludes.txt
+      The exclude.txt file is installed at:
+        #{libexec}/exclude.txt
     EOS
   end
 
