@@ -77,7 +77,7 @@ Only run on projects you trust. Check your project builds, has no uncommitted ch
    Mac
    e.g. /Applications/updatedep
    ```
-
+---
 ### Setting the NVD API key
 This application is utilizing the Owasp dependency-check. And it is highly encouraged to obtain an NVD API Key. Setting the NVD API key will make the dependency scanning much faster.
 1. Generate the NVD API using https://nvd.nist.gov/developers/request-an-api-key
