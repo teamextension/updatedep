@@ -1,20 +1,17 @@
-# vulnerable
+# latest
 
 ```
-updatedep vulnerable [options] [pom.xml|build.gradle path]
+updatedep latest [options] [pom.xml|build.gradle path]
 ```
-
 ###
-### Options: 
+### Options:
 
  | Option                     | Shortened Option | Description                 |
  |----------------------------|------------------|-----------------------------|
  | --ignoreLowVulnerabilities |        -i        | Ignore low vulnerabilities. |
- 
 ####
 ### Description:
-
-Detect dependencies with vulnerabilities.
+Display the latest dependency versions.
 ### How It Works:
 ####
-For each dependency, explicit and implicit, run a vulnerability scan and display known security vulnerabilities. Uses whitelist.txt and blacklist.txt.
+For each explicit dependency, determine the latest version, then compare the current version with the latest version. Uses whitelist.txt, blacklist.txt and exclude.txt.
