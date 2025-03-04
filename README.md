@@ -164,7 +164,7 @@ updatedep <action> [options] [pom.xml|build.gradle path]
 
 ---
 ## Support
-### For inquiries feel free to contact [us.](https://www.teamextension.com/contact/)
+### For inquiries feel free to contact us at support@teamextension.com.
 
 ---
 ## FAQ
