@@ -123,6 +123,7 @@ This application is utilizing the Owasp dependency-check. And it is highly encou
 ---
 
 ## Usage
+### IMPORTANT: Make sure the project builds on the command line, not just in your IDE, before using UpdateDep.
 ```
 updatedep <action> [options] [pom.xml|build.gradle path]
 ```
