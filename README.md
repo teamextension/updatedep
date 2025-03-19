@@ -69,7 +69,7 @@ Only run on projects you trust. Check your project builds, has no uncommitted ch
 
 1. **Download UpdateDep**:  
    Visit the [UpdateDep GitHub Releases Page](https://github.com/teamextension/updatedep/releases) to download the latest version of `UpdateDep`.
-2. Set the UPDATEDEP_HOME system variable with the path of your jar file
+2. Set the system variable with the path of your jar file along with the batch file for Windows or sh file for Mac
    ```
    Windows
    e.g. C:\Program Files\updatedep
@@ -82,7 +82,7 @@ Only run on projects you trust. Check your project builds, has no uncommitted ch
 This application is utilizing the Owasp dependency-check. And it is highly encouraged to obtain an NVD API Key. Setting the NVD API key will make the dependency scanning much faster.
 1. Generate the NVD API using https://nvd.nist.gov/developers/request-an-api-key
 2. Save a copy of the NVD API key as this will only be shown once.
-3. In the **UPDATEDEP_HOME** path add an **updatedep.yaml** file with contents below. For adding the system variable see [Manual-Installation](#manual-installation).
+3. In the **~/.ud** path add an **updatedep.yaml** file with contents below. For adding the system variable see [Manual-Installation](#manual-installation).
    #### updatedep.yaml
    ```
    owasp:
@@ -112,11 +112,9 @@ This application is utilizing the Owasp dependency-check. And it is highly encou
    brew upgrade updatedep
    ```
 ### Upgrade Using the Upgrade Action
-1. Make sure the UPDATEDEP_HOME is set with the path of your updatedep.jar
-
-2. **Open Terminal or Command Prompt**:  
+1. **Open Terminal or Command Prompt**:  
    Use the **Terminal** app on macOS/Linux or **Command Prompt** on Windows.
-3. **Execute the Upgrade Command**:
+2. **Execute the Upgrade Command**:
     ```
    updatedep upgrade
    ```
@@ -182,7 +180,7 @@ Set the MAVEN_HOME path variable
 ###
 ### 3. I have multiple Java versions installed. How can I set the correct version for running the application?
 ####
-To specify the Java version, edit the batch or script file for UpdateDep, located in the *UPDATEDEP_HOME* directory:
+To specify the Java version, edit the batch or script file for UpdateDep, located in the C:\Program Files\updatedep (for Windows) or /usr/local/Cellar/updatedep/<updatedep-version>/libexec (for Mac) or in the location where you manually added the batch file:
 ####
 For Windows:
 
@@ -221,7 +219,7 @@ Yes, the application uses ports 8081 to 8089 during login and log-out. It checks
 ###
 ### 7. Why am I seeing this "Error: Unable to access jarfile ~\updatedep.jar"?
 ####
-This occurs if when the UPDATEDEP_HOME path variable was not set, or the jar file is not present in the current working directory. The value of the path variable should contain the path of the jar file path and for the exclude.txt, blacklist.txt and whitelist.txt.
+This occurs if when the location of the updatedep.jar path variable was not set, or the jar file is not present in the current working directory. The value of the path variable should contain the path of the jar file path.
 ###
 ### 8.  What should I do if I encounter errors like this?
 ####
