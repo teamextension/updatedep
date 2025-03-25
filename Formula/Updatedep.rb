@@ -1,8 +1,8 @@
 class Updatedep < Formula
   desc "Updatedep is an application that analyzes the dependencies of a project, this helps check what dependency versions can be used with less to no vulnerabilities."
   homepage "https://github.com/teamextension/updatedep"
-  url "https://github.com/teamextension/updatedep/releases/download/1.2.0/updatedep.jar"
-  sha256 "E988B282CAE50B085422B3B71185EB8B27FE3AD7BC60607A52FC6A2CC1DBB9EA"
+  url "https://github.com/teamextension/updatedep/releases/download/1.3.0/updatedep.jar"
+  sha256 "498B3AC532646CE4DA76F3CB5FDC7DC722D84ACD725386FE68DF95A2617AD4B1"
   license "MIT"
 
   depends_on "openjdk@11"
@@ -14,17 +14,27 @@ class Updatedep < Formula
 
   def install
     libexec.install "updatedep.jar"
-    bin.write_jar_script libexec/"updatedep.jar", "updatedep"
 
+    # Create a wrapper script to run the jar using the installed Java
+    (bin/"updatedep").write <<~EOS
+      #!/bin/bash
+      exec "#{Formula["openjdk@11"].opt_bin}/java" --add-opens java.base/sun.security.ssl=ALL-UNNAMED -jar "#{libexec}/updatedep.jar" "$@"
+    EOS
+
+    # Create the .ud directory in the user's home directory
+    ud_dir = File.expand_path("~/.ud")
+    mkdir_p ud_dir
+
+    # Install exclude.txt to the .ud directory
     resource("exclude").stage do
-      libexec.install "exclude.txt"
+      FileUtils.cp "exclude.txt", ud_dir
     end
   end
 
   def caveats
     <<~EOS
       The exclude.txt file is installed at:
-        #{libexec}/exclude.txt
+        ~/.ud/exclude.txt
     EOS
   end
 
