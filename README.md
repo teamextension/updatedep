@@ -69,20 +69,13 @@ Only run on projects you trust. Check your project builds, has no uncommitted ch
 
 1. **Download UpdateDep**:  
    Visit the [UpdateDep GitHub Releases Page](https://github.com/teamextension/updatedep/releases) to download the latest version of `UpdateDep`.
-2. Set the system variable with the path of your jar file along with the batch file for Windows or sh file for Mac
-   ```
-   Windows
-   e.g. C:\Program Files\updatedep
-   
-   Mac
-   e.g. /Applications/updatedep
-   ```
+2. Save in the same path of updatedep.jar the updatedep.bat file for Windows and updatedep.sh script for Mac.
 ---
 ### Setting the NVD API key
 This application is utilizing the Owasp dependency-check. And it is highly encouraged to obtain an NVD API Key. Setting the NVD API key will make the dependency scanning much faster.
 1. Generate the NVD API using https://nvd.nist.gov/developers/request-an-api-key
 2. Save a copy of the NVD API key as this will only be shown once.
-3. In the **~/.ud** path add an **updatedep.yaml** file with contents below. For adding the system variable see [Manual-Installation](#manual-installation).
+3. In the **~/.ud** path add an **updatedep.yaml** file with contents below.
    #### updatedep.yaml
    ```
    owasp:
@@ -218,11 +211,7 @@ Yes, the application uses ports 8081 to 8089 during login and log-out. It checks
 ####
     log-out: Used to log-out the user.
 ###
-### 7. Why am I seeing this "Error: Unable to access jarfile ~\updatedep.jar"?
-####
-This occurs if when the location of the updatedep.jar path variable was not set, or the jar file is not present in the current working directory. The value of the path variable should contain the path of the jar file path.
-###
-### 8.  What should I do if I encounter errors like this?
+### 7.  What should I do if I encounter errors like this?
 ####
     Failed to update hosted suppressions file, results may contain false positives already resolved by the DependencyCheck project
 ####
