@@ -1,7 +1,7 @@
-# suggest-tests
+# parent
 
 ```
-updatedep suggest-tests [options] [pom.xml|build.gradle path]
+updatedep parent [options] [pom.xml|build.gradle path]
 ```
 
 ###
