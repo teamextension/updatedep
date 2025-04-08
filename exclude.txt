@@ -1,9 +1,7 @@
 alpha
 b
-beta
-build
+dev
 m
-mc
 pre
 rc
 snapshot
