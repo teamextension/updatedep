@@ -15,7 +15,7 @@ updatedep maximum [options] [pom.xml|build.gradle path]
 
 ####
 ### Description:
-Detect the highest dependency versions without vulnerabilities and breaking changes.
+Detect the highest dependency versions without breaking changes and minimal vulnerabilities.
 ### How It Works:
 ####
-For each explicit dependency, find the first non-breaking version, going from highest version to lowest. Scan the highest non-breaking version for vulnerabilities for additional information. Uses whitelist.txt, blacklist.txt and exclude.txt.
+For each explicit dependency, find the first non-breaking version, going from highest version to lowest. Scan the highest non-breaking version for vulnerabilities for additional information. Uses whitelist.txt, blacklist.txt and exclude.txt. Make sure the project builds on the command line, not just in your IDE.
