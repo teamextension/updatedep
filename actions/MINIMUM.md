@@ -18,4 +18,4 @@ updatedep minimum [options] [pom.xml|build.gradle path]
 Detect the minimum dependency versions needed to remove vulnerabilities, without breaking changes.
 ### How It Works:
 ####
-For each explicit dependency, find the lowest version, which is higher than the current version, that builds and has no vulnerability. Uses whitelist.txt, blacklist.txt and exclude.txt.
+For each explicit dependency, find the minimal version greater than the current version that builds and has no vulnerability. Uses whitelist.txt, blacklist.txt, and exclude.txt. Make sure the project builds on the command line, not just in your IDE.
