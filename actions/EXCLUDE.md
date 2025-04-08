@@ -10,10 +10,13 @@ Display instructions on how to exclude dependencies. Excluded dependencies are s
 
 ### How It Works:
 ####
-The exclude.txt file is read from the current working directory. If the file does not exist, exclude.txt is read from the ~/.ud path. Exclude dependencies by adding the dependency pattern in it's own line. Here are the defaults entries in exclude.txt.
+The exclude.txt file is first read from the current working directory. If it is not found, it is read from the ~/.ud/ directory. To exclude dependencies, add a matching string to the file. Defaults entries in exclude.txt are:
 ```
--rc
--m
+alpha
+b
+dev
+m
+pre
+rc
 snapshot
-beta
 ```
