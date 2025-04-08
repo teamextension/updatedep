@@ -17,4 +17,4 @@ Detect unnecessary explicit dependencies since they are already implicit depende
 
 ### How It Works:
 ####
-For each explicit dependency, check if the dependency is also an implicit dependency, and if the versions match. If the versions match, the explicit dependency can be made implicit. Whenever a dependency is removed, the dependency tree is recreated to get the latest dependency versions. Uses whitelist.txt and blacklist.txt.
+For each explicit dependency, check if the dependency is also an implicit dependency with the same version. If the versions match, the explicit dependency can be made implicit. Whenever a dependency is removed, the dependency tree is recreated to get the latest dependency versions. Uses whitelist.txt and blacklist.txt. Make sure the project builds on the command line, not just in your IDE.
