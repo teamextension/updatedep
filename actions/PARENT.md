@@ -16,4 +16,4 @@ updatedep parent [options] [pom.xml|build.gradle path]
 Find the top level explicit dependency of an implicit dependency.
 ### How It Works:
 ####
-Gets the parent of the passed dependency from the dependency tree of the project. The --dependency parameter is required.
+Retrieves the parent of the specified implicit dependency using the project's dependency tree. The --dependency parameter is required.
