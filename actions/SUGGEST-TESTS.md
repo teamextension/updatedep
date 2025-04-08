@@ -16,4 +16,4 @@ updatedep suggest-tests [options]
 Display AI suggested tests for a given dependency.
 ### How It Works:
 ####
-For the specified dependency, ask AI to generate a list of things for test planning. The --dependency parameter is required.
+For the specified dependency, ask AI to generate a list of ideas for test planning. The --dependency parameter is required.
