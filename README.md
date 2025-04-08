@@ -7,10 +7,11 @@
 
 UpdateDep helps manage Maven and Gradle dependency versions. Automates the time-consuming process of looking for the best (latest, non-breaking, non-vulnerable) dependency version.
 
-Uses the pom.xml or build.gradle in the current directory if not specified. Processing time depends on build time and number of dependencies. Automated breaking change detection depends on project test coverage. Projects with minimal test coverage will have to be manually tested for breaking changes.
+Uses pom.xml or build.gradle in the current directory if not specified. Processing time depends on build time and number of dependencies. Automated breaking change detection depends on project test coverage. Projects with minimal test coverage will have to be manually tested for breaking changes.
 
-Only run on projects you trust. Check your project builds, has no uncommitted changes, and backup before running.
+Only run on projects you trust. Check that your project builds, that it has no uncommitted changes, and backup before running. Make sure the project builds on the command line, not just in your IDE.
 
+UpdateDep helps manage project dependencies by identifying optimal, non-breaking, and secure versions. Its analysis is best-effort and may include inaccuracies. Users should verify all suggested changes. By using UpdateDep, you accept it is provided "AS IS" without warranties of accuracy, reliability, or fitness for a purpose. The developers assume no liability for issues or damages. Users are responsible for maintaining project functionality and security when applying updates.
 
 ---
 
