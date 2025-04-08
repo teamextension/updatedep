@@ -13,7 +13,7 @@ updatedep old [options] [pom.xml|build.gradle path]
 
 ####
 ### Description:
-Detect dependencies whose last release is more than 3 years ago.
+Identify dependencies that haven’t had a release in over 3 years.
 ### How It Works:
 ####
 For each explicit dependency, determine the release date of the highest version, then check if the dependency was released more than **3** years ago. Uses whitelist.txt, blacklist.txt and exclude.txt.
