@@ -169,23 +169,19 @@ updatedep <action> [options] [pom.xml|build.gradle path]
 UpdateDep requires Java 11 or higher. Please ensure you have the correct JAVA version installed.
 
 ###
-### 2. Why am I seeing this error "java.lang.IllegalStateException: Maven home is set to: 'null/bin' which is not a directory"?
-####
-Set the MAVEN_HOME path variable
-###
-### 3. I have multiple Java versions installed. How can I set the correct version for running the application?
+### 2. I have multiple Java versions installed. How can I set the correct version for running the application?
 ####
 To specify the Java version, edit the batch or script file for UpdateDep, located in the C:\Program Files\updatedep (for Windows) or /usr/local/Cellar/updatedep/<updatedep-version>/libexec (for Mac) or in the location where you manually added the batch file:
 ####
 For Windows:
 
-    @echo off "~\Java\jdk-11.0.14\bin\java" -jar "C:\Program Files\updatedep\updatedep.jar" %*
+    @echo off "~\Java\jdk-11.0.14\bin\java" --add-opens java.base/sun.security.ssl=ALL-UNNAMED -jar "C:\Program Files\updatedep\updatedep.jar" %*
 ####
 For Mac:
 
-    "/Library/Java/JavaVirtualMachines/openjdk-11.0.2.jdk/Contents/Home/bin/java" -jar "/usr/local/Cellar/updatedep/<updatedep version>/libexec/updatedep.jar" "$@"
+    "/Library/Java/JavaVirtualMachines/openjdk-11.0.2.jdk/Contents/Home/bin/java" --add-opens java.base/sun.security.ssl=ALL-UNNAMED -jar "/usr/local/Cellar/updatedep/<updatedep version>/libexec/updatedep.jar" "$@"
 ###
-### 4. Why is the application consuming so much disk space?
+### 3. Why is the application consuming so much disk space?
 ####
 The application creates temporary files that may accumulate over time. You can safely delete the *dctemp* folders:
 ####
@@ -197,14 +193,13 @@ For macOS:
 
     /System/Volumes/Data/private/var/folders/df/rq4tg8992bbc56vyrppp02x00000gn/T
 ###
-### 5. What should I do if I encounter errors like these?
+### 4. What should I do if I encounter errors like these?
 ####
-    io.github.jeremylong.openvulnerability.client.nvd.NvdApiRetryStrategy - NVD API request failures are occurring; retrying request for the Nth time 
-    ERROR org.owasp.dependencycheck.Engine - Error updating the NVD Data
+    [ERROR] Error updating the NVD Data
 ####
-These errors occur when the OWASP Dependency Check engine cannot retrieve NVD data, often due to temporary unavailability of the NVD API. Please try running the application again after some time.
+This error occurs when the OWASP Dependency Check engine cannot retrieve NVD data, often due to temporary unavailability of the NVD API. Please try running the application again after some time.
 ###
-### 6. Does the application use any network ports?
+### 5. Does the application use any network ports?
 ####
 Yes, the application uses ports 8081 to 8089 during login and log-out. It checks the availability of these ports and uses the next available one.
 ####
@@ -212,7 +207,7 @@ Yes, the application uses ports 8081 to 8089 during login and log-out. It checks
 ####
     log-out: Used to log-out the user.
 ###
-### 7.  What should I do if I encounter errors like this?
+### 6.  What should I do if I encounter errors like this?
 ####
     Failed to update hosted suppressions file, results may contain false positives already resolved by the DependencyCheck project
 ####
