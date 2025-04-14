@@ -112,6 +112,7 @@ This application is utilizing the Owasp dependency-check. And it is highly encou
     ```
    updatedep upgrade
    ```
+### Note: For manual installed, run upgrade in the current working directory of the updatedep.jar file.
 ---
 
 ## Usage
