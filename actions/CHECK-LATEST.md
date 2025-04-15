@@ -13,8 +13,8 @@ updatedep check-latest [options] [pom.xml|build.gradle path]
 
 ####
 ### Description:
-Detect dependencies with versions that were released less than a month ago.
+Check if the project builds and has no breaking changes when using the latest dependency versions.
 
 ### How It Works:
 ####
-For each explicit dependency, determine the release date of the explicit version, then check if the dependency was released less than a month ago. Uses blacklist.txt. Make sure the project builds on the command line, not just in your IDE.
+For each explicit dependency, perform a build using the latest version. The build will help determine if using the latest version is breaking or not. Uses blacklist.txt and exclude.txt. Make sure the project builds on the command line, not just in your IDE.
