@@ -39,7 +39,7 @@ UpdateDep helps manage project dependencies by identifying optimal, non-breaking
 - Prints dependency licenses and flags restrictive licenses like GPL and AGPL.
 ---
 ## Prerequisites
-* Java 11
+* Java 11+, using the Java version your application needs to build and run.
 * Apache Maven 3.8.4+
 ---
 ## Installation
