@@ -1,5 +1,5 @@
 <configuration>
     <files>
-        <file uri="https://github.com/teamextension/updatedep/releases/download/1.5.0/updatedep.jar" path="${user.dir}/updatedep.jar" size="144463171" classpath="true" checksum="b5c1d0ac"/>
+        <file uri="https://github.com/teamextension/updatedep/releases/download/1.5.1/updatedep.jar" path="${user.dir}/updatedep.jar" size="144469596" classpath="true" checksum="effd09c6"/>
     </files>
 </configuration>
